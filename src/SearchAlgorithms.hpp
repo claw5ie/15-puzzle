@@ -21,18 +21,18 @@ struct CustomAllocator
   typedef const T&  const_reference;
   typedef T         value_type;
 
-  T *allocate(size_t n, const void * = 0)
+  T *allocate(size_t count, void const * = 0)
   {
-    size_t const bytes = n * sizeof(T);
+    size_t const bytes = count * sizeof(T);
     memory_used += bytes;
 
-    return (T*)new char[bytes];
+    return (T *)new char[bytes];
   }
 
-  void deallocate(void *p, size_t n)
+  void deallocate(void *pointer, size_t count)
   {
-    delete[] (char *)p;
-    memory_used -= n * sizeof(T);
+    delete[] (char *)pointer;
+    memory_used -= count * sizeof(T);
   }
 };
 

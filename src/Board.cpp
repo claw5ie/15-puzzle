@@ -3,17 +3,6 @@
 
 #include "Board.hpp"
 
-void Board::set_pos()
-{
-  for (size_t i = 0; i < 4 * 4; i++)
-  {
-    if (data[i] == EMPTY_SPACE_VALUE)
-      pos = i;
-    else
-      assert(data[i] < 15);
-  }
-}
-
 bool Board::can_be_solved(Board const &target) const
 {
   size_t this_inversions = 0;

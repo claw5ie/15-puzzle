@@ -13,8 +13,6 @@ struct Board
   uint32_t pos;
   uint8_t data[4 * 4];
 
-  void set_pos();
-
   bool can_be_solved(Board const &target) const;
 
   bool can_move(Direction direction) const;
